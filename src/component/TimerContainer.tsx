@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
+import Timer from './Timer';
+
 const useStyles = makeStyles({
   container: {
     position: 'fixed',
@@ -19,7 +21,7 @@ const useStyles = makeStyles({
     backgroundColor: '#1a1a1a',
     border: '40px solid #141414',
     borderRadius: 20,
-    width: '80%',
+    width: '60%',
     height: 300,
 
     fontSize: 200,
@@ -28,19 +30,13 @@ const useStyles = makeStyles({
 
   legContainer: {
     display: 'flex',
-    width: '70%',
+    width: '50%',
     justifyContent: 'space-between',
   },
 
-  leftLeg: {
-    borderLeft: '80px solid #141414',
-    borderBottom: '80px solid transparent',
-    // borderBottomLeftRadius: 20,
-  },
-
-  rightLeg: {
-    borderRight: '80px solid #141414',
-    borderBottom: '80px solid transparent',
+  leg: {
+    border: '15px solid #141414',
+    borderRadius: '0 0 5px 5px',
   },
 });
 
@@ -49,10 +45,12 @@ const TimerContainer = props => {
 
   return (
     <div className={classes.container}>
-      <div className={classes.timerBody}>22:10</div>
+      <div className={classes.timerBody}>
+        <Timer />
+      </div>
       <div className={classes.legContainer}>
-        <div className={classes.leftLeg}></div>
-        <div className={classes.rightLeg}></div>
+        <div className={classes.leg}></div>
+        <div className={classes.leg}></div>
       </div>
     </div>
   );
