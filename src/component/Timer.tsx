@@ -1,20 +1,28 @@
 import React, { FC, useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core';
 import moment from 'moment';
+import Seconds from './Seconds';
 
 interface TimerInterfaceProps {
   timeFormat?: string;
 }
 
 const styles = makeStyles(theme => ({
-  container: {},
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+
+  time: {
+    fontSize: 200,
+  },
 }));
 
 const Timer: FC<TimerInterfaceProps> = props => {
-  const { timeFormat = 'HH:mm:ss' } = props;
+  const { timeFormat = 'HH:mm' } = props;
   const classes = styles();
 
-  const [now, setNow] = useState('');
+  const [now, setNow] = useState(moment().format(timeFormat));
 
   useEffect(() => {
     setInterval(() => {
@@ -22,7 +30,12 @@ const Timer: FC<TimerInterfaceProps> = props => {
     }, 1000);
   }, [now]);
 
-  return <div className={classes.container}>{now}</div>;
+  return (
+    <div className={classes.container}>
+      <span className={classes.time}>{now}</span>
+      <Seconds />
+    </div>
+  );
 };
 
 export default Timer;
