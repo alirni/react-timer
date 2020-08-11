@@ -23,8 +23,6 @@ const useStyles = makeStyles({
     borderRadius: 20,
     width: '60%',
     height: 300,
-
-    fontSize: 200,
     color: '#fafafa',
   },
 
