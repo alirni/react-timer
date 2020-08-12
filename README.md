@@ -1,8 +1,6 @@
 ## react-timer
 Timer powered by React with ❤️
 
-#
-
 ## Available Scripts
 
 In the project directory, you can run:
