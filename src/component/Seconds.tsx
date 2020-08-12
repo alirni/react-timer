@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core';
 import moment from 'moment';
+import { relative } from 'path';
 
 interface SecondsInterfaceProps {
   [x: string]: any;
@@ -12,10 +13,16 @@ const styles = makeStyles(theme => ({
   },
 
   secondsBox: {
-    width: 10,
     height: 10,
-    backgroundColor: 'blue',
-    margin: 2,
+    backgroundColor: '#90A4AE',
+    position: 'relative',
+    borderRadius: 2,
+    transition: 'width 1500ms ease-out',
+    boxShadow: 'inset 0 1px 2px #1a1a1a, inset 0 -1px 2px #1a1a1a',
+  },
+
+  secondsNumber: {
+    position: 'absolute',
   },
 }));
 
@@ -23,7 +30,7 @@ const Seconds: FC<SecondsInterfaceProps> = props => {
   const classes = styles();
   const [seconds, setSeconds] = useState<number[] | undefined>(() => {
     const temp: number[] = [];
-    for (let i = 0; i <= Number(moment().format('ss')); i++) {
+    for (let i = 1; i <= Number(moment().format('ss')); i++) {
       temp.push(i);
     }
     return temp;
@@ -41,8 +48,12 @@ const Seconds: FC<SecondsInterfaceProps> = props => {
 
   return (
     <div className={classes.container}>
-      {seconds &&
-        seconds.map((sec, index) => <div key={index} className={classes.secondsBox}></div>)}
+      {seconds && seconds.length > 0 && (
+        <div
+          className={classes.secondsBox}
+          style={{ width: `${(seconds.length * 100) / 60}%` }}
+        ></div>
+      )}
     </div>
   );
 };
