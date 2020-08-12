@@ -10,6 +10,7 @@ interface SecondsInterfaceProps {
 const styles = makeStyles(theme => ({
   container: {
     display: 'flex',
+    margin: '20px 80px',
   },
 
   secondsBox: {
@@ -48,7 +49,7 @@ const Seconds: FC<SecondsInterfaceProps> = props => {
 
   return (
     <div className={classes.container}>
-      {seconds && seconds.length > 0 && (
+      {seconds && (
         <div
           className={classes.secondsBox}
           style={{ width: `${(seconds.length * 100) / 60}%` }}

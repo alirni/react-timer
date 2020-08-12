@@ -22,7 +22,6 @@ const useStyles = makeStyles({
     border: '40px solid #141414',
     borderRadius: 20,
     width: '60%',
-    height: 300,
     color: '#fafafa',
   },
 
@@ -45,10 +44,6 @@ const TimerContainer = props => {
     <div className={classes.container}>
       <div className={classes.timerBody}>
         <Timer />
-      </div>
-      <div className={classes.legContainer}>
-        <div className={classes.leg}></div>
-        <div className={classes.leg}></div>
       </div>
     </div>
   );

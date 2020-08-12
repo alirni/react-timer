@@ -14,7 +14,7 @@ const styles = makeStyles(theme => ({
   },
 
   time: {
-    fontSize: 200,
+    fontSize: 400,
   },
 }));
 
