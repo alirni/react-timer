@@ -8,8 +8,12 @@ import App from './App';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-test('renders learn react link', () => {
+test('renders without error', () => {
   const wrapper = shallow(<App />);
-  console.log(wrapper.debug());
-  expect(wrapper).toBeTruthy();
+  const appComponent = wrapper.find('.app');
+  expect(appComponent.lenght).toBe(1);
 });
+
+test('renders incerment TimerContainer', () => {});
+
+test('renders Timer display', () => {});
