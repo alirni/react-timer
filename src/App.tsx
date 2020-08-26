@@ -4,8 +4,7 @@ import TimerContainer from './component/TimerContainer';
 
 function App() {
   return (
-    <div className="App">
-      <span>learn react</span>
+    <div className="app">
       <TimerContainer />
     </div>
   );
