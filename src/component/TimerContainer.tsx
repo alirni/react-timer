@@ -43,7 +43,7 @@ const TimerContainer = props => {
   return (
     <div className={classes.container}>
       <div className={classes.timerBody}>
-        <Timer />
+        <Timer data-test="timerComponent" />
       </div>
     </div>
   );
