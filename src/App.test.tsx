@@ -27,11 +27,15 @@ const setup = (props = {}, state = null) => {
  * Create a ShallowWrapper for th Timer component.
  * @function setupTimer
  * @param {object} props - Component props.
- * @param {any} state - Initial state for setup.
+ * @param {object} state - Initial state for setup.
  * @returns {ShalloeWrapper}
  */
 const setupTimer = (props = {}, state = null) => {
-  return shallow(<TimerClassComponent {...props} />);
+  const wrapper = shallow(<TimerClassComponent {...props} />);
+  if (state) {
+    wrapper.setState(state);
+  }
+  return wrapper;
 };
 
 /**
