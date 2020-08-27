@@ -31,7 +31,7 @@ const Timer: FC<TimerInterfaceProps> = props => {
   }, [now]);
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container} data-test="timerContainerComponent">
       <span className={classes.time}>{now}</span>
       <Seconds />
     </div>

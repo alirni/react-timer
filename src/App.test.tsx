@@ -4,8 +4,11 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
+import moment from 'moment';
+
 import App from './App';
 import TimerContainer from './component/TimerContainer';
+import TimerClassComponent from './component/TimerClassComponent';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
@@ -18,6 +21,17 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
  */
 const setup = (props = {}, state = null) => {
   return shallow(<App {...props} />);
+};
+
+/**
+ * Create a ShallowWrapper for th Timer component.
+ * @function setupTimer
+ * @param {object} props - Component props.
+ * @param {any} state - Initial state for setup.
+ * @returns {ShalloeWrapper}
+ */
+const setupTimer = (props = {}, state = null) => {
+  return shallow(<TimerClassComponent {...props} />);
 };
 
 /**
@@ -36,14 +50,23 @@ test('renders without error', () => {
   expect(appComponent.length).toBe(1);
 });
 
-test('renders TimerContainer', () => {
-  const wrapper = setup();
-  const timerContainerComponent = findByTestAttr(wrapper, 'timerContainerComponent');
-  expect(timerContainerComponent.length).toBe(1);
-});
+// test('renders TimerContainer', () => {
+//   const wrapper = setup();
+//   const timerContainerComponent = findByTestAttr(wrapper, 'timerContainerComponent');
+//   expect(timerContainerComponent.length).toBe(1);
+// });
 
-test('renders Timer display', () => {
-  const wrapper = shallow(<TimerContainer />);
-  const timerComponent = findByTestAttr(wrapper, 'timerComponent');
-  expect(timerComponent.length).toBe(1);
+// test('renders Timer display', () => {
+//   const wrapper = shallow(<TimerContainer />);
+//   const timerComponent = findByTestAttr(wrapper, 'timerComponent');
+//   expect(timerComponent.length).toBe(1);
+// });
+
+test('time start now', () => {
+  const wrapper = setupTimer();
+  // console.log(wrapper.debug());
+
+  const now = moment().format('HH:mm');
+  const initialNowState = wrapper.state('now');
+  expect(initialNowState).toBe(now);
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Timer from './Timer';
+import TimerClassComponent from './TimerClassComponent';
 
 const useStyles = makeStyles({
   container: {
@@ -43,7 +44,7 @@ const TimerContainer = props => {
   return (
     <div className={classes.container}>
       <div className={classes.timerBody}>
-        <Timer data-test="timerComponent" />
+        <Timer />
       </div>
     </div>
   );
