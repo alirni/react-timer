@@ -30,7 +30,7 @@ const setup = (props = {}, state = null) => {
  * @param {object} state - Initial state for setup.
  * @returns {ShalloeWrapper}
  */
-const setupTimer = (props = {}, state = null) => {
+const setupTimer = (props = {}, state = {}) => {
   const wrapper = shallow(<TimerClassComponent {...props} />);
   if (state) {
     wrapper.setState(state);
@@ -73,4 +73,16 @@ test('time start now', () => {
   const now = moment().format('HH:mm');
   const initialNowState = wrapper.state('now');
   expect(initialNowState).toBe(now);
+});
+
+test('clicking button and time display', () => {
+  const time = '22:10';
+  const wrapper = setupTimer({}, { time });
+  console.log(wrapper.debug());
+
+  const button = findByTestAttr(wrapper, 'displayTimeButton');
+  button.simulate('click');
+
+  const timeDisplay = findByTestAttr(wrapper, 'timeDisplay');
+  expect(timeDisplay.text()).toContain(time);
 });

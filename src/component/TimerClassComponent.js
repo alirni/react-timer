@@ -10,15 +10,20 @@ class TimerClassComponent extends Component {
 
     this.state = {
       now: moment().format(props.timeFormat),
+      time: '',
     };
   }
 
   render() {
-    const { now } = this.state;
+    const { now, time } = this.state;
 
     return (
       <div data-test="testTimer">
         <span>{now}</span>
+        <span data-test="timeDisplay">this is a test for check {time}</span>
+        <button data-test="displayTimeButton" onClick={() => this.setState({ time })}>
+          set time
+        </button>
         <Seconds />
       </div>
     );
