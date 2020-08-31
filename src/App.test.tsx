@@ -78,7 +78,6 @@ test('time start now', () => {
 test('clicking button and time display', () => {
   const time = '22:10';
   const wrapper = setupTimer({}, { time });
-  console.log(wrapper.debug());
 
   const button = findByTestAttr(wrapper, 'displayTimeButton');
   button.simulate('click');
