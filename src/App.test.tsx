@@ -8,7 +8,6 @@ import moment from 'moment';
 
 import App from './App';
 import TimerContainer from './component/TimerContainer';
-import TimerClassComponent from './component/TimerClassComponent';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
@@ -23,20 +22,20 @@ const setup = (props = {}, state = null) => {
   return shallow(<App {...props} />);
 };
 
-/**
- * Create a ShallowWrapper for th Timer component.
- * @function setupTimer
- * @param {object} props - Component props.
- * @param {object} state - Initial state for setup.
- * @returns {ShalloeWrapper}
- */
-const setupTimer = (props = {}, state = {}) => {
-  const wrapper = shallow(<TimerClassComponent {...props} />);
-  if (state) {
-    wrapper.setState(state);
-  }
-  return wrapper;
-};
+// /**
+//  * Create a ShallowWrapper for th Timer component.
+//  * @function setupTimer
+//  * @param {object} props - Component props.
+//  * @param {object} state - Initial state for setup.
+//  * @returns {ShalloeWrapper}
+//  */
+// const setupTimer = (props = {}, state = {}) => {
+//   const wrapper = shallow(<TimerClassComponent {...props} />);
+//   if (state) {
+//     wrapper.setState(state);
+//   }
+//   return wrapper;
+// };
 
 /**
  * Return ShalloeWrapper containing node(s) with the given data-test value.
